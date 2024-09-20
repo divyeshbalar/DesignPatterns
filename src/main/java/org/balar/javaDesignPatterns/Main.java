@@ -1,8 +1,13 @@
 package org.balar.javaDesignPatterns;
 
+import org.balar.javaDesignPatterns.decoratorPattern.jdkInternalDecorators.TestInputStreamComponent;
 import org.balar.javaDesignPatterns.observerPattern.observables.WeatherStation;
 import org.balar.javaDesignPatterns.observerPattern.observers.Observer1;
 import org.balar.javaDesignPatterns.observerPattern.observers.Observer2;
+import org.balar.javaDesignPatterns.singleton.Singleton;
+import org.balar.javaDesignPatterns.singleton.SingletonEnum;
+
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,7 +39,38 @@ public class Main {
 //        } catch (InvalidInputException e) {
 //            System.out.println(e.getMessage());
 //        }
-
+        
+        
+        //#################---//Singleton Pattern//---###################
+        
+        // Singleton let you have only one instance of a class
+        
+        //trying to run the race condition to getInstance using two threads
+        //However, since we are using synchronized keyword, it will not let the other thread enter into the function while first one is inside.
+//        Thread t1 = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Singleton s = Singleton.getInstance();
+//            }
+//        });
+//
+//        Thread t2 = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Singleton s = Singleton.getInstance();
+//            }
+//        });
+//
+//        t1.start();
+//        t2.start();
+        
+        //SingletonEnum the best way to create a singleton
+//        SingletonEnum se = SingletonEnum.INSTANCE;
+//        se.i=120;
+//        se.show();
+        
+        
+        
         //#################--- // Behavioral Pattern // ---#####################
 
         //#################---//Strategy Pattern//---###################
@@ -64,14 +100,25 @@ public class Main {
         IObserver concrete must have implementation of update(IObservable) method
         i.e Chatroom, social media groups, pub-sub mechanism, broadcasting
          */
-        Observer1 sub1 = new Observer1();
-        Observer2 sub2 = new Observer2();
-        WeatherStation ws = new WeatherStation();
-        ws.add(sub1);
-        ws.add(sub2);
-        ws.setTemperature(30);
-        ws.setTemperature(28);
-        ws.setTemperature(33);
+//        Observer1 sub1 = new Observer1();
+//        Observer2 sub2 = new Observer2();
+//        WeatherStation ws = new WeatherStation();
+//        ws.add(sub1);
+//        ws.add(sub2);
+//        ws.setTemperature(30);
+//        ws.setTemperature(28);
+//        ws.setTemperature(33);
+
+
+
+        //Decorator pattern Test
+
+//        TestInputStreamComponent tisc = new TestInputStreamComponent();
+//        try {
+//            tisc.show();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
 
     }
 }
